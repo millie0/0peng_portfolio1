@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>damn</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .container {
+            width: 100%;
+            height: 3000px;
+            background-color: cornflowerblue;
+        }
+
+        .row {
+            height: 500px;
+        }
+
+        .ham-wrap {
+            width: 100%;
+            height: 1000px;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        .ham-icon {
+            width: 40px;
+            height: 40px;
+            right: 80px;
+            top: 80px;
+            z-index: 10;
+        }
+
+
+        .oval-wrap {
+            width: 100px;
+            height: 300px;
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            overflow: hidden;
+            transition: .5s;
+            /* transform: scale(1, 1); */
+            /* background-color: crimson; */
+        }
+
+        .wrap-add {
+            width: 700px;
+            height: 1000px;
+            transition: .5s;
+            /* animation: wrap-add 3s ease-in-out;
+            animation-fill-mode: forwards; */
+        }
+
+        @keyframes wrap-add {
+            from {
+                /* width: 100px;
+                height: 300px; */
+                /* transform: scale(1, 1); */
+            }
+
+            to {
+                /* width: 700px;
+                height: 1000px; */
+                /* transform: scale(3, 3); */
+            }
+        }
+
+        .wrap-remove {
+            animation: wrap-remove .8s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes wrap-remove {
+            from {
+                width: 700px;
+                height: 1000px;
+            }
+
+            to {
+                width: 100px;
+                height: 300px;
+            }
+        }
+
+        .menu {
+            width: 200px;
+            color: #fff;
+            top: 400px;
+            right: 330px;
+        }
+
+        .menu a {
+            color: #D1D4E0;
+            font-size: 25px;
+            line-height: 60px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            display: block;
+            text-align: end;
+        }
+
+        .explode-bg {
+            /* margin-left: 70px; */
+            width: 600px;
+            /* height: 200px; */
+        }
+
+        .explode-bg img {
+            /* width: 100%; */
+        }
+
+        /* 原本爆版版本 */
+        /* .hambar {
+    width: 100%;
+    /* height: 800px; */
+        /* } */
+
+        /* .wrap-explode {
+    width: 600px;
+    height: 1000px;
+    z-index: 2;
+} */
+
+        /* 遮罩 */
+
+        /* .wrap-ham {
+    width: 100px;
+    height: 300px;
+    border-radius: 50%;
+    top: -250px;
+    right: -250px;
+    overflow: hidden;
+    z-index: 10; */
+        /* background-color: #fff; */
+        /* } */
+
+        /* .ham-bg {
+    width: 550px;
+    /* height: 900px; */
+        /* overflow: hidden;
+        z-index: 15;
+        top: 50px;
+        right: 80px; */
+        /* border-radius: 50%; */
+        /* transform: translateX(600px); */
+        /* 用jquery寫點擊後遮罩移動，變大 */
+        /* }
+
+        .wrap-add {
+            animation: wrap-add 0.8s ease-in-out;
+            animation-fill-mode: forwards;
+        } */
+
+
+        /* @keyframes wrap-add {
+    from {
+        width: 100px;
+        height: 300px;
+    }
+    to {
+        width: 700px;
+        height: 1000px;
+    }
+}
+
+.wrap-remove {
+    animation: wrap-remove 0.8s ease-in-out;
+    animation-fill-mode: forwards;
+} */
+
+        /* @keyframes wrap-remove {
+    from {
+        width: 700px;
+        height: 1000px;
+    }
+    to {
+        width: 100px;
+        height: 300px;
+    }
+} */
+
+        /* .ham-icon-show {
+    width: 40px;
+    height: 40px;
+    right: 75px;
+    top: 62px;
+    z-index: 5;
+} */
+
+        /* .ham-icon-show img {
+    width: 100%;
+    fill: white;
+} */
+
+        /* .hamburger { */
+        /* height: 930px; */
+        /* position: fixed;
+    right: 0;
+    top: 0; */
+        /* z-index: 9; */
+        /* } */
+
+        /* .menu {
+    left: 50px;
+    bottom: 250px;
+    z-index: 10;
+} */
+
+        /* .ham-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 0 30px 200px;
+}
+
+.menu img {
+    width: 100%;
+} */
+        /* 
+.menu a {
+    color: #D1D4E0;
+    font-size: 25px;
+    line-height: 60px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    display: block;
+    text-align: end;
+} */
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row w-100">
+            <div class="ham-wrap position-fixed w-100">
+                <div class="ham-icon position-absolute">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93.63 71.01">
+                        <defs>
+                            <style>
+                                .cls-4 {
+                                    fill: none;
+                                    stroke: #d1d4e0;
+                                    stroke-miterlimit: 10;
+                                    stroke-width: 10px;
+                                }
+                            </style>
+                        </defs>
+                        <g id="圖層_2" data-name="圖層 2">
+                            <g id="圖層_1-2" data-name="圖層 1">
+                                <line class="cls-4" y1="5" x2="93.63" y2="5" />
+                                <line class="cls-4" y1="35.51" x2="93.63" y2="35.51" />
+                                <line class="cls-4" y1="66.01" x2="93.63" y2="66.01" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="oval-wrap position-absolute">
+                    <div class="menu position-absolute">
+                        <a href="">work</a>
+                        <a href="">about</a>
+                        <a href="">contact</a>
+                        <a href="">side effect</a>
+                    </div>
+                    <div class="explode-bg">
+                        <img src="./svg/ham_explode.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 以下為原本爆版版本 -->
+        <!-- <div class="row hamburger "-->
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script>
+        // $('.ham-icon').one('click', function () {
+        //     $('.oval-wrap').addClass('wrap-add');
+        // });
+        $('.ham-icon').on('click', function () {
+            $('.oval-wrap').toggleClass('wrap-add');
+            // $('.oval-wrap').toggleClass('wrap-remove');
+        });
+// $('.ham-icon-show').on('click', function () {
+    // $('.wrap-ham').removeClass('wrap-remove');
+    //         $('.wrap-ham').addClass('wrap-add');
+    //         $('.wrap-explode').css('z-index', '6');
+    //     })
+    //     $('.ham-icon-show').hover(function () {
+    //         $('body').css('cursor', 'url("./svg/cursor-hover.svg"),auto')
+    //     }, function () {
+    //         $('body').css('cursor', 'url("./svg/cursor.svg"),auto')
+    //     })
+
+    //     $('.ham-icon').on('click', function () {
+    //         $('.wrap-ham').removeClass('wrap-add');
+    //         $('.wrap-ham').addClass('wrap-remove');
+    //         $('.wrap-explode').css('z-index', '2');
+    //     })
+    //     $('.ham-icon').hover(function () {
+    //         $('.cls-4').css('stroke', '#8D9F22');
+    //         $('body').css('cursor', 'url("./svg/cursor-hover.svg"),auto')
+    //     }, function () {
+    //         $('.cls-4').css('stroke', '#D1D4E0');
+    //         $('body').css('cursor', 'url("./svg/cursor.svg"),auto')
+    //     })
+    </script>
+</body>
+
+</html>
